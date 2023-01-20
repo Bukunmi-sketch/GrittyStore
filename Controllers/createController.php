@@ -13,6 +13,7 @@ $product_name="";
 $description="";
 $price="";
 $category="";
+$brand="";
 $available="";
 $date="";
 $picture="";
@@ -24,7 +25,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $description=$authInstance->validate($_POST['product_description']);
     $price=$authInstance->validate($_POST['product_price']);
     $category=$authInstance->validate($_POST['category']);
-    $commission=$_POST['commission'];
+    $brand=$authInstance->validate($_POST['brand']);
     $available=$authInstance->validate($_POST['product_available']);
     $date=date("y-m-d h:ia");
     $admin_id=$_POST['admin'];
@@ -36,13 +37,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $dirfile=$dir.basename($picture);
     
 
-    if(!empty($product_name) && !empty($price) && !empty($description) && !empty($category) && !empty($available) && !empty($picture) ){
+    if(!empty($product_name) && !empty($price) && !empty($description) && !empty($category)  && !empty($brand) && !empty($available) && !empty($picture) ){
         if($productInstance->IfProductExisted($product_name)){ 
           
                    if($imgInstance->imgextension($picture)){
                      if($imgInstance->largeImage($dpsize)){
                          if($imgInstance->moveImage($dptemp, $dirfile)){
-                             if(  $productInstance->createProducts($admin_id, $picture, $product_name, $description, $category, $price, $commission, $available, $date) ){
+                             if(  $productInstance->createProducts($admin_id, $picture, $product_name, $description, $category, $brand, $price, $available, $date) ){
                             
                                 echo "success";
                             }else{

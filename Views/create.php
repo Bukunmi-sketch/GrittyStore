@@ -17,7 +17,7 @@ $registered_date = $userInfo['date'];
 <html lang="en">
 
 <head>
-    <title>dashboard afrimama</title>
+    <title>create board</title>
     <?php include '../Includes/metatags.php'; ?>
 
     <link rel="stylesheet" type="text/css" href="../Resources/css/left.css">
@@ -101,6 +101,23 @@ $registered_date = $userInfo['date'];
                                 </select>
 
                             </div>
+                        </div>
+
+                        <div class="inputbox-details">
+                        <label for="productbrand">product brand</label>
+                                <select name="brand">
+                                    <?php
+                                    $stmt = $brandInstance->getBrands();
+                                    $brandData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                    if ($stmt->rowCount() > 0) :
+                                    ?>
+                                        <?php foreach ($brandData as $brand) : ?>
+                                            <option value="<?php echo  "{$brand['name']}"; ?> "><?php echo  "{$brand['name']}"; ?> </option>
+                                        <?php endforeach ?>
+                                    <?php else : ?>
+                                        <option value="">No brand, create Now!</option>
+                                    <?php endif ?>
+                                </select>
                         </div>
 
                         <div class="button-details">
