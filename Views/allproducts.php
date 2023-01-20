@@ -65,7 +65,7 @@ $registered_date = $userInfo['date'];
 
                                     <div class="productname"> <?php echo  "{$itemdata['product_name']}"; ?> </div>
 
-                                    <div id="followers-count" style="color:red" ;> <span> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span> <?php echo  "{$itemdata['commission']}"; ?>% commission </div>
+                                    <div id="followers-count" style="color:red" ;> <span> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span> commission </div>
                                     <div style="display: flex;">
                                         <div id="followers-count"> <?php echo  "{$itemdata['category']}"; ?> </div>
                                         <a href="#">

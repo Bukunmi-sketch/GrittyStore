@@ -21,7 +21,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>create Afrimama categories</title>
+    <title>Add Brand</title>
     <?php include '../Includes/metatags.php' ; ?>
 
               <link rel="stylesheet" type="text/css" href="../Resources/css/left.css"> 
@@ -39,13 +39,13 @@
         <div class="middle">
     <div class="min-sub-container" style="display:block; position:relative;">
         <div class="spanheader">
-            <span><h4> Add a category </h4></span>
+            <span><h4> Add Brand </h4></span>
         </div>
 
         <form action="#" method="POST">
             <div class="error"></div>
         <div class="inputbox-details">
-             <input type="text" id="passa" name="category_name" value="" placeholder="create a category" autofocus required>
+             <input type="text" id="passa" name="category_name" value="" placeholder="Add a Brand" autofocus required>
          </div>
 
          <div class="button-details">
@@ -87,7 +87,7 @@
 
       <?php else: ?>
       <div class="no-value" style="text-align:center">
-            <h4>you have not added any category</h4>
+            <h4>you have not added any Brand</h4>
       </div>      
        <?php endif ?>
 
