@@ -16,12 +16,12 @@ require '../Includes/db.inc.php';
         public function createBrand($name, $creator, $created_at,$creator_id){  
                try{
                 
-                   $sql="INSERT INTO brands(name, created_by, created_at, creator_id ) VALUES (:category_name, :creator, :created, :creator_id )";
+                   $sql="INSERT INTO brands(name, created_by, created_at, creator_id ) VALUES (:category_name, :creator, :created_at, :creator_id )";
                      $stmt= $this->db->prepare($sql);
                       $result=  $stmt->execute([
                         ":category_name"=>$name,
                         ":creator" =>$creator,
-                        ":created" =>$created_at,
+                        ":created_at" =>$created_at,
                         ":creator_id" =>$creator_id
                    ]);
    

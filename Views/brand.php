@@ -59,8 +59,8 @@
  </div>
 
  <?php 
-          $stmt=$categoryInstance->getCategories();
-          $categoryData=$stmt->fetchAll(PDO::FETCH_ASSOC);
+          $stmt=$brandInstance->getBrands();
+          $brandData=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
         ?>
  <?php  if($stmt->rowCount() > 0 ): ?>
@@ -70,17 +70,17 @@
   <table>
     <tr>
       <th>Manage</th>
-      <th>Category Name</th>
+      <th>brand Name</th>
       <th>Created by</th>
       <th>Created_date</th>
      
     </tr>
-    <?php foreach($categoryData as $category): ?>
+    <?php foreach($brandData as $brand): ?>
     <tr>
       <td>  <button class="deletebtn"> Delete </button></td>
-      <td> <?php echo  "{$category['name']}" ; ?> </td>
-      <td> <?php echo  "{$category['created_by']}" ; ?>  </td>
-      <td>  <?php  echo date("D,F j Y",  strtotime($category['created_at'])); ?> </td>
+      <td> <?php echo  "{$brand['name']}" ; ?> </td>
+      <td> <?php echo  "{$brand['created_by']}" ; ?>  </td>
+      <td>  <?php  echo date("D,F j Y",  strtotime($brand['created_at'])); ?> </td>
     </tr>
       <?php endforeach ?>
   </table>

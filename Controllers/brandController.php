@@ -15,7 +15,7 @@ $date="";
 if($_SERVER['REQUEST_METHOD']=="POST"){
 
 
-    $Brand_name=$authInstance->validate($_POST['Brand_name']);
+    $Brand_name=$authInstance->validate($_POST['brand_name']);
     $creator=$_POST['creator_name'];
     $date=date("y-m-d h:ia");
     $creator_id=$_POST['creator_id'];
