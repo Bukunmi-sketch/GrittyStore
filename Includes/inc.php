@@ -13,6 +13,7 @@
     include '../Models/Notification.php';
     include '../Models/Payment.php';
     include '../Models/Dashboard.php';
+    include '../Models/Brand.php';
     include '../Models/Agent.php';
       // create of object of the user class
     $authInstance= new Auth($conn);
@@ -27,6 +28,7 @@
     $payInstance = new Payment($conn);
     $notifyInstance = new Notification($conn);
     $dashboardInstance =new Dashboard($conn);
+    $brandInstance = new Brand($conn);
     $agentInstance =new Agent($conn);
     
     $dirfile="../Images/product-img/";

@@ -37,19 +37,19 @@ require '../Includes/db.inc.php';
     }   //create()
    
                                   //if produxtname already exist  //auth
-public function IfCategoryExisted($categoryname){
+public function IfBrandExisted($brandname){
     try{
     
-      $sql="SELECT * FROM categories WHERE name =:categoryname";
+      $sql="SELECT * FROM brands WHERE name =:brandname";
       $stmt= $this->db->prepare($sql);
-      $stmt->bindParam(':categoryname', $categoryname);
+      $stmt->bindParam(':brandname', $brandname);
       $stmt->execute();
       // Check if row is actually returned
       if($stmt->rowCount() > 0 ){
-        //  echo "category name already existeds";
+        //  echo "brand name already existeds";
           return false;
        } else{   
-          //   echo 'continue to create category';
+          //   echo 'continue to create brand';
              return true;
          }
     }catch(PDOException $e){
@@ -58,9 +58,9 @@ public function IfCategoryExisted($categoryname){
     }
 
   
-    public function getCategories()
+    public function getBrands()
     {             
-      $sql="SELECT * FROM categories";
+      $sql="SELECT * FROM brands";
       $stmt=$this->db->prepare($sql);
       $stmt->execute();
       return $stmt;
