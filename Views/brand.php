@@ -45,7 +45,7 @@
         <form action="#" method="POST">
             <div class="error"></div>
         <div class="inputbox-details">
-             <input type="text" id="passa" name="category_name" value="" placeholder="Add a Brand" autofocus required>
+             <input type="text" id="passa" name="brand_name" value="" placeholder="Add a Brand" autofocus required>
          </div>
 
          <div class="button-details">
@@ -101,7 +101,7 @@
    </main>
            <script src="../Resources/js/app.js"></script>
            <script src="../Resources/js/sidebar.js"></script>
-           <script src="../Resources/js/createCategory.js"></script>
+           <script src="../Resources/js/createBrand.js"></script>
      </body>
 
 </html>
