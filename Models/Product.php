@@ -74,6 +74,19 @@ public function IfProductExisted($productname){
            }
 
 
+           public function getProductsById($productid){
+            try{
+                $sql="SELECT * FROM product WHERE id=:productid";
+                $stmt=$this->db->prepare($sql);
+                $stmt->bindParam(":productid", $productid);
+                $stmt->execute();
+                return $stmt;
+            }catch(PDOException $e){
+              echo $e->getMessage();
+            }
+           }
+
+
             //create new products
         public function updateProducts($productid, $picture, $product_name, $description, $category, $price,$commission, $available){  
           try{
