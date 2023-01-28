@@ -76,7 +76,7 @@ public function IfProductExisted($productname){
 
            public function getProductsById($productid){
             try{
-                $sql="SELECT * FROM product WHERE id=:productid";
+                $sql="SELECT * FROM products WHERE id=:productid";
                 $stmt=$this->db->prepare($sql);
                 $stmt->bindParam(":productid", $productid);
                 $stmt->execute();
