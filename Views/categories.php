@@ -21,7 +21,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>create Afrimama categories</title>
+    <title>create categories</title>
     <?php include '../Includes/metatags.php' ; ?>
 
               <link rel="stylesheet" type="text/css" href="../Resources/css/left.css"> 
@@ -44,6 +44,16 @@
 
         <form action="#" method="POST">
             <div class="error"></div>
+      
+            <div class="images">
+                            <label for="productImage">Product Image</label>
+                            <div id="upload">
+                                <img src="" onClick="trigger()" id="profileDisplay">
+                                <input type="file" name="product_image" onchange="displayImage(this)" id="capture" style="display:none">
+                                <i class="fa fa-camera" id="camera"></i>
+                            </div>
+            </div>
+
         <div class="inputbox-details">
              <input type="text" id="passa" name="category_name" value="" placeholder="create a category" autofocus required>
          </div>
