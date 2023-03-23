@@ -90,6 +90,7 @@
     <tr>
       <td>  <button class="deletebtn"> Delete </button></td>
       <td> <?php echo  "{$category['name']}" ; ?> </td>
+      <td> <img src="" alt="" srcset=""></td>
       <td> <?php echo  "{$category['created_by']}" ; ?>  </td>
       <td>  <?php  echo date("D,F j Y",  strtotime($category['created_at'])); ?> </td>
     </tr>
