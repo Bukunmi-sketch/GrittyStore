@@ -181,12 +181,12 @@
         $countKlumpPay = $notifyInstance->countNewKlumpPayment();
         if ($countKlumpPay == 0) :
         ?>
-          <a href="klump.php" class="menu-item">
-            <h3>Klump payment</h3>
+          <a href="Stripe.php" class="menu-item">
+            <h3>Stripe payment</h3>
           </a>
         <?php else : ?>
-          <a href="klump.php?read=true" class="menu-item">
-            <h3>Klump payment</h3>
+          <a href="Stripe.php?read=true" class="menu-item">
+            <h3>Stripe payment</h3>
             <span><small class="notification-count"><?php echo $countKlumpPay ?></small></span>
           </a>
         <?php endif ?>
@@ -197,12 +197,12 @@
         $countFlutterwavePay = $notifyInstance->countNewFlutterwavePayment();
         if ($countFlutterwavePay == 0) :
         ?>
-          <a href="flutterwave.php" class="menu-item">
-            <h3>Flutterwave payment</h3>
+          <a href="Paypal.php" class="menu-item">
+            <h3>Paypal payment</h3>
           </a>
         <?php else : ?>
-          <a href="flutterwave.php?read=true" class="menu-item">
-            <h3>Flutterwave payment</h3>
+          <a href="Paypal.php?read=true" class="menu-item">
+            <h3>Paypal payment</h3>
             <span><small class="notification-count"><?php echo $countFlutterwavePay ?></small></span>
           </a>
         <?php endif ?>
