@@ -81,6 +81,7 @@
     <tr>
       <th>Manage</th>
       <th>Category Name</th>
+      <th>Image</th>
       <th>Created by</th>
       <th>Created_date</th>
      
