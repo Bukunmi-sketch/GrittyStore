@@ -128,6 +128,16 @@ CREATE TABLE IF NOT EXISTS `brands` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `currency`(
+  `id` bigint(20) UNSIGNED NOT NULL  AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `created_by` varchar(255)  NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `Last_updated_by` varchar(255) NOT NULL,
+  `created_at` timestamp  ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE IF NOT EXISTS `sent_email` (
   `id` bigint(20) UNSIGNED NOT NULL  AUTO_INCREMENT,
   `sent_by` varchar(255) NOT NULL,
@@ -165,14 +175,14 @@ CREATE TABLE IF NOT EXISTS `reports` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
  
- ALTER TABLE `products`
- ADD `brand` varchar(255) NOT NULL AFTER `category`;
+--  ALTER TABLE `products`
+--  ADD `brand` varchar(255) NOT NULL AFTER `category`;
 
-ALTER TABLE `categories`
-ADD `creator_id` int(11) NOT NULL AFTER `id`;
+-- ALTER TABLE `categories`
+-- ADD `creator_id` int(11) NOT NULL AFTER `id`;
 
-ALTER TABLE `brands`
-CHANGE `updated_at` `creator_id` int(11);
+-- ALTER TABLE `brands`
+-- CHANGE `updated_at` `creator_id` int(11);
 
 
 -- ALTER TABLE `products`

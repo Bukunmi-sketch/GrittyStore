@@ -6,25 +6,20 @@
    $dbname="gritty"; 
 
 
-   //  $servername="sql204.infinityfree.com";
-   //  $username="if0_34533092";
-   //  $password="RwGDsxLWH9F";
-   //  $dbname="if0_34533092_grittystore_db"; 
+    // $servername="sql204.infinityfree.com";
+    // $username="if0_34533092";
+    // $password="RwGDsxLWH9F";
+    // $dbname="if0_34533092_grittystore_db"; 
 
 
-    /*
-   $servername="afrimamafarms.com";
-   $dbname="afrimama_afrimama";
-   $username="afrimama_mama_afri";
-   $password="afrimummy2022";
-   */
+   
   
-/*
-   $servername="fdb1034.awardspace.net";
-   $username="4043945_afri";
-   $password="--19computer";
-   $dbname="4043945_afri";
-*/
+
+  //  $servername="fdb1030.awardspace.net";
+  //  $username="4340363_grittystore";
+  //  $password="Computer19";
+  //  $dbname="4340363_grittystore";
+
 
    try{
     $conn= new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

@@ -15,6 +15,7 @@
     include '../Models/Dashboard.php';
     include '../Models/Brand.php';
     include '../Models/Agent.php';
+    include '../Models/Currency.php';
       // create of object of the user class
     $authInstance= new Auth($conn);
     $userInstance= new User($conn);
@@ -30,6 +31,7 @@
     $dashboardInstance =new Dashboard($conn);
     $brandInstance = new Brand($conn);
     $agentInstance =new Agent($conn);
+    $currencyInstance =new Currency($conn);
     
     $dirfile="../Images/product-img/";
 

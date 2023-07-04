@@ -103,6 +103,7 @@ $registered_date = $userInfo['date'];
                             </div>
                         </div>
 
+                        <div class="flex-inbox">
                         <div class="inputbox-details">
                         <label for="productbrand">product brand</label>
                                 <select name="brand">
@@ -119,6 +120,22 @@ $registered_date = $userInfo['date'];
                                     <?php endif ?>
                                 </select>
                         </div>
+
+                        <div class="inputbox-details">
+                        <label for="productbrand">Currency</label>
+                                <select name="Currencty">
+                                    <?php
+                                    $currencyData = ["","naira","dollar","pounds","yen"];
+                                    ?>
+                                        <?php foreach ($currencyData as $currency) : ?>
+                                            <option value="<?php echo  $currency ?> "><?php echo  $currency ?> </option>
+                                        <?php endforeach ?>
+                                 
+                                </select>
+                        </div>
+
+
+                      </div>
 
                         <div class="button-details">
                             <input type="hidden" name="admin" value="<?php echo $sessionid; ?> " autofocus>
