@@ -14,10 +14,10 @@ require '../Includes/db.inc.php';
         }
 
         //create new products
-        public function createProducts($admin_id, $picture, $product_name, $description, $category, $brand, $price,  $available, $date){  
+        public function createProducts($admin_id, $picture, $product_name, $description, $category, $currency, $brand, $price,  $available, $date){  
                try{
                 
-                   $sql="INSERT INTO products(user_id, product_picture, product_name, description, category, brand, price,available,	created_at	)VALUES   (:admin_id, :picture,:product_name, :description, :category, :brand, :price, :isavailable, :created )";
+                   $sql="INSERT INTO products(user_id, product_picture, product_name, description, category, currency, brand, price,available,	created_at	)VALUES   (:admin_id, :picture,:product_name, :description, :category, :currency, :brand, :price, :isavailable, :created )";
                      $stmt= $this->db->prepare($sql);
                       $result=  $stmt->execute([
                         ":admin_id"=>$admin_id,
@@ -25,6 +25,7 @@ require '../Includes/db.inc.php';
                         ":picture" => $picture,
                         ":product_name" =>$product_name,  
                         ":category" => $category,
+                        ":currency" => $currency,
                         ":brand" => $brand,
                         ":price" =>$price,
                         ":isavailable" => $available,

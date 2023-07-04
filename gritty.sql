@@ -175,8 +175,9 @@ CREATE TABLE IF NOT EXISTS `reports` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
  
---  ALTER TABLE `products`
+ ALTER TABLE `products`
 --  ADD `brand` varchar(255) NOT NULL AFTER `category`;
+ ADD `currency` varchar(255) NOT NULL AFTER `category`;
 
 -- ALTER TABLE `categories`
 -- ADD `creator_id` int(11) NOT NULL AFTER `id`;
