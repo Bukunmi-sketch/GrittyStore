@@ -13,13 +13,14 @@ require '../Includes/db.inc.php';
         }
 
         //create new category
-        public function createCategory($name, $creator, $created_at,$creator_id){  
+        public function createCategory($name, $picture, $creator, $created_at,$creator_id){  
                try{
                 
-                   $sql="INSERT INTO categories(name, created_by, created_at, creator_id ) VALUES (:category_name, :creator, :created, :creator_id )";
+                   $sql="INSERT INTO categories(name, picture, created_by, created_at, creator_id ) VALUES (:category_name, :picture, :creator, :created, :creator_id )";
                      $stmt= $this->db->prepare($sql);
                       $result=  $stmt->execute([
                         ":category_name"=>$name,
+                        ":picture"=>$picture,
                         ":creator" =>$creator,
                         ":created" =>$created_at,
                         ":creator_id" =>$creator_id

@@ -46,10 +46,10 @@
             <div class="error"></div>
       
             <div class="images">
-                            <label for="productImage">Product Image</label>
+                            <label for="productImage"> Category Image </label>
                             <div id="upload">
                                 <img src="" onClick="trigger()" id="profileDisplay">
-                                <input type="file" name="product_image" onchange="displayImage(this)" id="capture" style="display:none">
+                                <input type="file" name="category_image" onchange="displayImage(this)" id="capture" style="display:none">
                                 <i class="fa fa-camera" id="camera"></i>
                             </div>
             </div>

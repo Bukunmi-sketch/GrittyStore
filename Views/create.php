@@ -123,7 +123,7 @@ $registered_date = $userInfo['date'];
 
                         <div class="inputbox-details">
                         <label for="productbrand">Currency</label>
-                                <select name="Currencty">
+                                <select name="currency">
                                     <?php
                                     $currencyData = ["","naira","dollar","pounds","yen"];
                                     ?>
