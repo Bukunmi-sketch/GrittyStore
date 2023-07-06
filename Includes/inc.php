@@ -34,6 +34,7 @@
     $currencyInstance =new Currency($conn);
     
     $dirfile="../Images/product-img/";
+    $categorydirfile="../Images/category-img/";
 
      $agentsignupdirfile='http://localhost/websites/agent/Images/signup-img/';
     // $agentsignupdirfile='http://api.afrimamafarms.com/agent/Images/signup-img/';

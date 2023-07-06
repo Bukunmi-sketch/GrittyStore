@@ -16,7 +16,7 @@ require '../Includes/db.inc.php';
         public function createCategory($name, $picture, $creator, $created_at,$creator_id){  
                try{
                 
-                   $sql="INSERT INTO categories(name, picture, created_by, created_at, creator_id ) VALUES (:category_name, :picture, :creator, :created, :creator_id )";
+                   $sql="INSERT INTO categories(name, category_picture, created_by, created_at, creator_id ) VALUES (:category_name, :picture, :creator, :created, :creator_id )";
                      $stmt= $this->db->prepare($sql);
                       $result=  $stmt->execute([
                         ":category_name"=>$name,

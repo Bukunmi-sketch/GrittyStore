@@ -90,7 +90,7 @@
     <tr>
       <td>  <button class="deletebtn"> Delete </button></td>
       <td> <?php echo  "{$category['name']}" ; ?> </td>
-      <td> <img src="" alt="" srcset=""></td>
+      <td> <img src="<?php echo $categorydirfile; ?><?php echo $category["category_picture"]; ?>"" alt="" srcset=""></td>
       <td> <?php echo  "{$category['created_by']}" ; ?>  </td>
       <td>  <?php  echo date("D,F j Y",  strtotime($category['created_at'])); ?> </td>
     </tr>
@@ -114,6 +114,22 @@
            <script src="../Resources/js/app.js"></script>
            <script src="../Resources/js/sidebar.js"></script>
            <script src="../Resources/js/createCategory.js"></script>
+
+           <script type="text/javascript">
+        function trigger(e) {
+            document.querySelector("#capture").click();
+        }
+
+        function displayImage(e) {
+            if (e.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
+                }
+                reader.readAsDataURL(e.files[0]);
+            }
+        }
+    </script>
      </body>
 
 </html>
