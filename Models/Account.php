@@ -12,16 +12,17 @@ require '../Includes/db.inc.php';
         }
     //    register($userid, $username, $email, $mobileno, $country, $accountStatus, $otp, $usertoken, $password, $date))
         //register new users
-        public function register($userid, $username, $email, $mobile, $country, $state, $status, $otp, $password, $date){  
+        public function register($userid, $firstname, $lastname, $email, $mobile, $country, $state, $status, $otp, $password, $date){  
                try{
                    //hash the password;
                    $user_hashed_password = password_hash($password, PASSWORD_DEFAULT );
    
-                   $sql="INSERT INTO users(userid, username, email, mobile, country, state, accountStatus, otp, password, reg_date)VALUES(:userid, :username, :email, :mobile, :country, :state, :status, :otp, :password, :reg_date)";
+                   $sql="INSERT INTO users(userid, firstname, lastname, email, mobile, country, state, accountStatus, otp, password, reg_date)VALUES(:userid, :firstname, :lastname, :email, :mobile, :country, :state, :status, :otp, :password, :reg_date)";
                    $stmt= $this->db->prepare($sql);
                    $result=  $stmt->execute([
                         ":userid"=>$userid,
-                        ":username"=>$username,
+                        ":firstname"=>$firstname,
+                        ":lastname"=>$lastname,
                         ":email" =>$email,
                         ":mobile" =>$mobile,
                         ":status" => $status,

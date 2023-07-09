@@ -174,15 +174,20 @@ CREATE TABLE IF NOT EXISTS `reports` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
- 
- ALTER TABLE `products`
- -- ADD `brand` varchar(255) NOT NULL AFTER `category`;
- ADD `currency` varchar(255) NOT NULL AFTER `category`;
 
- ALTER TABLE `categories`
+
+ ALTER TABLE `users`
+ CHANGE `name` `firstname` varchar(255),
+ ADD `lastname` varchar(255) NOT NULL AFTER `firstname`;
+ 
+--  ALTER TABLE `products`
+ -- ADD `brand` varchar(255) NOT NULL AFTER `category`;
+--  ADD `currency` varchar(255) NOT NULL AFTER `category`;
+
+--  ALTER TABLE `categories`
 -- CHANGE `product_picture` `category_picture` varchar(255),
 -- ADD `creator_id` int(11) NOT NULL AFTER `id`;
-ADD `category_picture` blob NOT NULL AFTER `creator_id`;
+-- ADD `category_picture` blob NOT NULL AFTER `creator_id *`;
 
 -- ALTER TABLE `brands`
 -- CHANGE `updated_at` `creator_id` int(11);
