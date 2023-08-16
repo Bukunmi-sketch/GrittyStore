@@ -29,6 +29,33 @@ CREATE TABLE IF NOT EXISTS `administrator` (
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(50) NOT NULL UNIQUE,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL UNIQUE,
+  `mobile` bigint(15) NOT NULL UNIQUE,
+  `country` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `lga` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `accountStatus` varchar(255) NOT NULL,
+  `otp` int(55) NOT NULL,
+  `LastActiveDate` varchar(255) NOT NULL,
+  `LastActiveTime` varchar(255) NOT NULL,
+  `DateLastActivity` date NOT NULL,
+  `LastActivity` int(55) NOT NULL,
+  `Bookmarks` bigint(11) NOT NULL,
+  `themetype` varchar(255) NOT NULL,
+  `ip_address` double(11,2) NOT NULL,
+  `browser_type` varchar(255) NOT NULL,
+  `forget_question` varchar(255) NOT NULL,
+  `forget_answer` varchar(255) NOT NULL,
+  `reg_date` varchar(255) NOT NULL,
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 --
@@ -96,17 +123,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) UNSIGNED NOT NULL  AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255)  NOT NULL,
-  `email_verified_at` timestamp  ,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(255),
-  `created_at` timestamp  ,
-  `updated_at` timestamp  ,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` bigint(20) UNSIGNED NOT NULL  AUTO_INCREMENT,
@@ -176,9 +193,26 @@ CREATE TABLE IF NOT EXISTS `reports` (
 
 
 
- ALTER TABLE `users`
- CHANGE `name` `firstname` varchar(255),
- ADD `lastname` varchar(255) NOT NULL AFTER `firstname`;
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(11) NOT NULL  AUTO_INCREMENT,
+  `website_name` varchar(250) DEFAULT NULL,
+  `website_url` varchar(250) DEFAULT NULL,
+  `website_email` varchar(250) DEFAULT NULL,
+  `admin_mail` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings`(`id`, `website_name`, `website_url`, `website_email`, `admin_mail`) VALUES (1, 'bucuzzi', 'http://bucuzzi.dx.am', 'support@bucuzzi.com', 'admin@bucuzzi.com' );
+
+ 
  
 --  ALTER TABLE `products`
  -- ADD `brand` varchar(255) NOT NULL AFTER `category`;

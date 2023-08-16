@@ -13,6 +13,15 @@ class Auth
         $this->db = $conn;
     }
 
+/**
+ * The escapeString function in PHP escapes special characters in a given string to prevent SQL
+ * injection.
+ * 
+ * @param biotext The parameter `` is a string that represents the text that needs to be
+ * escaped before being used in a database query.
+ * 
+ * @return the escaped string.
+ */
 
     public function escapeString($biotext)
     {

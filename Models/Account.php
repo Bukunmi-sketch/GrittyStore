@@ -12,19 +12,18 @@ require '../Includes/db.inc.php';
         }
     //    register($userid, $username, $email, $mobileno, $country, $accountStatus, $otp, $usertoken, $password, $date))
         //register new users
-        public function register($userid, $firstname, $lastname, $email, $mobile, $country, $state, $status, $otp, $password, $date){  
+        public function registerEmail($userid, $firstname, $lastname, $email,  $country, $state, $status, $otp, $password, $date){  
                try{
                    //hash the password;
                    $user_hashed_password = password_hash($password, PASSWORD_DEFAULT );
    
-                   $sql="INSERT INTO users(userid, firstname, lastname, email, mobile, country, state, accountStatus, otp, password, reg_date)VALUES(:userid, :firstname, :lastname, :email, :mobile, :country, :state, :status, :otp, :password, :reg_date)";
+                   $sql="INSERT INTO users(userid, firstname, lastname, email, country, state, accountStatus, otp, password, reg_date)VALUES(:userid, :firstname, :lastname, :email, :country, :state, :status, :otp, :password, :reg_date)";
                    $stmt= $this->db->prepare($sql);
                    $result=  $stmt->execute([
                         ":userid"=>$userid,
                         ":firstname"=>$firstname,
                         ":lastname"=>$lastname,
                         ":email" =>$email,
-                        ":mobile" =>$mobile,
                         ":status" => $status,
                         ":otp" => $otp,
                         ":country" =>$country,
@@ -50,6 +49,45 @@ require '../Includes/db.inc.php';
                    echo  $e->getMessage(); 
                }
            }   //register()
+
+
+           public function registerMobile($userid, $firstname, $lastname,  $mobile, $country, $state, $status, $otp, $password, $date){  
+            try{
+                //hash the password;
+                $user_hashed_password = password_hash($password, PASSWORD_DEFAULT );
+
+                $sql="INSERT INTO users(userid, firstname, lastname, mobile, country, state, accountStatus, otp, password, reg_date)VALUES(:userid, :firstname, :lastname,  :mobile, :country, :state, :status, :otp, :password, :reg_date)";
+                $stmt= $this->db->prepare($sql);
+                $result=  $stmt->execute([
+                     ":userid"=>$userid,
+                     ":firstname"=>$firstname,
+                     ":lastname"=>$lastname,
+                     ":mobile" =>$mobile,
+                     ":status" => $status,
+                     ":otp" => $otp,
+                     ":country" =>$country,
+                     ":state" =>$state,
+                     ":password" => $user_hashed_password,
+                     ":reg_date" =>$date
+                ]);
+
+                if($result){
+                  return true;
+             //return the users data and email will be the unique key here                         
+                 /*    return [
+                     'email' => $email,  
+                     'firstname'=>  $firstname,  
+                     'lastname' =>  $lastname  
+                         ];
+                         */
+                    }else{
+                 //   echo "error while inserting";
+                 return false;
+                }
+            } catch(PDOException $e){
+                echo  $e->getMessage(); 
+            }
+        }   //register()
 
 
                                //if email already exist  //auth

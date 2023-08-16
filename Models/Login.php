@@ -53,6 +53,93 @@ require '../Includes/db.inc.php';
   
 }  //login
 
+
+ //login users
+ public function LoginWithMobile($mobile, $password)
+ {
+    try {
+
+       $sql = "SELECT * FROM users WHERE mobile =:mobile";
+       $stmt = $this->db->prepare($sql);
+       $stmt->bindParam(':mobile', $mobile);
+       $stmt->execute();
+       // Check if row is actually returned
+       if ($stmt->rowCount() > 0) {
+          //Return row as an array indexed by both column name
+          $returned_row = $stmt->fetch(PDO::FETCH_ASSOC);
+          // Verify hashed password against entered password
+          if (password_verify($password, $returned_row['password'])) {
+             //define session if login was succesful
+             return [
+                'id' =>        $returned_row['id'],
+                'userid' =>  $returned_row['userid'],
+                'mobile' =>  $returned_row['mobile'],
+                'accountStatus' =>  $returned_row['accountStatus'],
+                'username' =>  $returned_row['username'],
+                'email' =>     $returned_row['email'],
+                'country' =>  $returned_row['country'],
+                'date' =>      $returned_row['reg_date'],
+                'password' =>   $returned_row['password']
+             ];
+          } else {
+             //   echo "incorrect password";
+             return false;
+          }
+       } else {
+          //    echo "user does not exist";
+          return false;
+       }
+    } catch (PDOException $e) {
+       echo  $e->getMessage();
+    }
+ }  //login
+
+
+
+
+//login users
+public function LoginWithEmail($email, $password)
+{
+   try {
+
+      $sql = "SELECT * FROM users WHERE email =:email";
+      $stmt = $this->db->prepare($sql);
+      $stmt->bindParam(':email', $email);
+      $stmt->execute();
+      // Check if row is actually returned
+      if ($stmt->rowCount() > 0) {
+         //Return row as an array indexed by both column name
+         $returned_row = $stmt->fetch(PDO::FETCH_ASSOC);
+         // Verify hashed password against entered password
+         if (password_verify($password, $returned_row['password'])) {
+            //define session if login was succesful
+            return [
+               'id' =>        $returned_row['id'],
+               'userid' =>  $returned_row['userid'],
+               'mobile' =>  $returned_row['mobile'],
+               'accountStatus' =>  $returned_row['accountStatus'],
+               'firstname' =>  $returned_row['firstname'],
+               'lastname' =>  $returned_row['lastname'],
+               'email' =>     $returned_row['email'],
+               'country' =>  $returned_row['country'],
+               'date' =>      $returned_row['reg_date'],
+               'password' =>   $returned_row['password']
+            ];
+         } else {
+            //   echo "incorrect password";
+            return false;
+         }
+      } else {
+         //    echo "user does not exist";
+         return false;
+      }
+   } catch (PDOException $e) {
+      echo  $e->getMessage();
+   }
+}  //login
+
+
+
 public function loginSetStatusOnline($sessionid){
     $query="UPDATE administrator SET Status='online' WHERE id=:sessionid ";
     $stmt=$this->db->prepare($query);
