@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` bigint(20) UNSIGNED NOT NULL  AUTO_INCREMENT,
   `order_id` int(11) NOT NULL ,
+  `user_id` int(11) NOT NULL ,
   `customers_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `customers_address` text NOT NULL,

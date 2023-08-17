@@ -115,7 +115,7 @@ class Order
   public function getUserOrders($userid)
   {
     try {
-      $sql = "SELECT * FROM orders WHERE order_id=:userid";
+      $sql = "SELECT * FROM orders WHERE user_id=:userid";
       $stmt = $this->db->prepare($sql);
       $stmt->bindParam(":userid", $userid);
       $stmt->execute();
