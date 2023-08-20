@@ -163,7 +163,7 @@ class Account
   public function getUsersDetails($users_id)
   {
     try {
-      $sql = "SELECT * FROM users WHERE user_id=:userid";
+      $sql = "SELECT * FROM users WHERE id=:userid";
       $stmt = $this->db->prepare($sql);
       $stmt->bindParam(":userid", $users_id);
       $stmt->execute();
